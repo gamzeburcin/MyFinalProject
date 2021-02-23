@@ -30,10 +30,22 @@ namespace ConsoleUI
         private static void ProductTest()
         {
             ProductManager productManager = new ProductManager(new EfProductDal()); //ben EfProductDal çalışıcam demek
-            foreach (var product in productManager.GetProductDetails()) //fiyatı 40 ve 100 arasındaki ürünleri filtreledik 
+
+            var result = productManager.GetProductDetails();
+            if (result.Success==true)
             {
-                Console.WriteLine(product.ProductName+ "/" +product.CategoryName);
+                foreach (var product in result.Data) //fiyatı 40 ve 100 arasındaki ürünleri filtreledik 
+                {
+                    Console.WriteLine(product.ProductName+ "/" +product.CategoryName);
+                }
+
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+            
         }
     }
 }
