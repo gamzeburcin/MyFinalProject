@@ -18,6 +18,7 @@ namespace WebAPI.Controllers
         //Loosely coupled- gevşek bağlılık yani bir bağımlılığı var ama soyuta bağımlılık var demek.
         //naming convention
         //IoC Container-Inversion of Control
+        
         IProductService _productService;
 
         public ProductsController(IProductService productService)
